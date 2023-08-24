@@ -35,19 +35,17 @@ services:
     networks:
       - net_principal
     volumes:
-      - POSTGRES_VOLUME_EXEMPLO:/var/lib/postgresql/data
+      - POSTGRES_DATA:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: softexpert
-      POSTGRES_DB: softtest
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
     ports:
       - 6086:5432
 
 networks:
   net_principal:
 
-
 volumes:
-  POSTGRES_VOLUME_EXEMPLO:
-  MYSQL_VOLUME_EXEMPLO:
-    driver: local
+  POSTGRES_DATA:
