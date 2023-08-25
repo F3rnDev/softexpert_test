@@ -5,12 +5,13 @@ header("Access-Control-Allow-Headers: DNT,User-Agent,X-Requested-With,If-Modifie
 header("Access-Control-Expose-Headers: Content-Length,Content-Range");
 
 require '../model/database/connection.php';
-require '../model/crud.php';
+require '../model/dbManager.php';
 
 $crud = new Crud($connection);
 
 //  Criar na base de dados tabela product
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+{
     if ($_POST['salesOperacao'] === 'create') 
     {
         $info = $_POST['info'];
@@ -22,6 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             echo "Erro ao cadastrar o produto.";
         }
+    }
+    else
+    {
+        $saleId = $_POST['venda'];
+        echo $saleId;
+        header("Location: http://localhost/salesList.php?saleId=".$saleId);
     }
 }
 
@@ -50,7 +57,7 @@ if (isset($_GET['id']) && isset($_GET['action'])) {
 
 if (isset($_GET['listAll']))
 {
-    $result = $crud->read("products");
+    $result = $crud->read("sales");
     header('Content-Type: application/json');
     echo json_encode($result);
 }

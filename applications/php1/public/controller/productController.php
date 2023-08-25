@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: DNT,User-Agent,X-Requested-With,If-Modifie
 header("Access-Control-Expose-Headers: Content-Length,Content-Range");
 
 require '../model/database/connection.php';
-require '../model/crud.php';
+require '../model/dbManager.php';
 
 $crud = new Crud($connection);
 

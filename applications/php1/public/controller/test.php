@@ -1,3 +1,3 @@
 <?php
 require '../model/database/connection.php';
-require '../model/crud.php';
+require '../model/dbManager.php';

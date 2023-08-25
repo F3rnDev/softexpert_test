@@ -41,8 +41,7 @@ if (saleid) {
   endSaleField.hidden = true;
 }
 
-if (itemid) {
-} else {
+if (!itemid) {
   itensOperation.value = "create";
 }
 

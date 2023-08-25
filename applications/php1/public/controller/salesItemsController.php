@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: DNT,User-Agent,X-Requested-With,If-Modifie
 header("Access-Control-Expose-Headers: Content-Length,Content-Range");
 
 require '../model/database/connection.php';
-require '../model/crud.php';
+require '../model/dbManager.php';
 
 $crud = new Crud($connection);
 
@@ -33,6 +33,7 @@ if (isset($_GET['id']) && isset($_GET['action'])) {
     $action = $_GET['action'];
     $info = $_GET['info'];
     $saleId = $_GET['saleId'];
+    $deleteFromListing = $_GET['deleteFromListing'];
 
     if ($action === 'delete') {
         $resultado = $crud->delete("salesItem", 'id', $id);
@@ -42,7 +43,15 @@ if (isset($_GET['id']) && isset($_GET['action'])) {
     {
         $deleteItem = $crud->delete("salesItem", 'saleid', $id);
         $deleteSale = $crud->delete("sales", 'id', $id);
-        header("Location: http://localhost/sales.php");
+
+        if(!$deleteFromListing)
+        {
+            header("Location: http://localhost/sales.php");
+        }
+        else
+        {
+            header("Location: http://localhost/salesList.php");
+        }
     }
 }
 
