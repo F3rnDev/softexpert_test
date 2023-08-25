@@ -4,41 +4,21 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range");
 header("Access-Control-Expose-Headers: Content-Length,Content-Range");
 
-require 'connection.php';
-require 'crud.php';
+require '../model/database/connection.php';
+require '../model/crud.php';
 
 $crud = new Crud($connection);
 
 //  Criar na base de dados tabela product
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($_POST['operacao'] === 'create') 
+    if ($_POST['salesOperacao'] === 'create') 
     {
-        $nome = $_POST['nome'];
-        $preco = $_POST['preco'];
-        $tipo = $_POST['tipo'];
-
-        echo "nome: $nome";
-        echo "tipo: $tipo";
+        $info = $_POST['info'];
     
-        $resultado = $crud->create('products', ["prodname", "price", "typeid"], [$nome, $preco, $tipo]);
+        $resultado = $crud->createAndReturnId('sales', ["info"], [$info]);
     
-        if ($resultado) {
-            header("Location: http://localhost/product.php");
-        } else {
-            echo "Erro ao cadastrar o produto.";
-        }
-    }
-    else
-    {
-        $id = $_POST['identificador'];
-        $nome = $_POST['nome'];
-        $preco = $_POST['preco'];
-        $tipo = $_POST['tipo'];
-    
-        $resultado = $crud->update('products', ["prodname", "price", "typeid"], [$nome, $preco, $tipo], $id);
-    
-        if ($resultado) {
-            header("Location: http://localhost/product.php");
+        if ($resultado[0]) {
+            header("Location: http://localhost/sales.php?saleId=". $resultado[1] ."&info=$info");
         } else {
             echo "Erro ao cadastrar o produto.";
         }
@@ -54,12 +34,6 @@ if (isset($_GET['id']) && isset($_GET['action'])) {
     {
         $resultado = $crud->delete("products", 'id', $id);
         header("Location: http://localhost/product.php");
-    }
-    elseif($action === 'update')
-    {
-
-
-        header("Location: http://localhost/product.php?id=$id&name=$name&price=$price&type=$type");
     }
     else
     {

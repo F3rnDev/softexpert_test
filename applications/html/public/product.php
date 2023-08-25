@@ -14,7 +14,7 @@
                 </div>
                 <?php endif; ?>
 
-                <form id="produtoCadastroForm" method="post" action="http://localhost:8080/productRequests.php">
+                <form id="produtoCadastroForm" method="post" action="http://localhost:8080/controller/productController.php">
                     <input type="hidden" id="operacao" name="operacao">
                     <input type="hidden" id="identificador" name="identificador">
                     <div class="form-group">

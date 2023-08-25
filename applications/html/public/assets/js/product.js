@@ -30,7 +30,7 @@ if (id) {
 function loadTableData() {
     console.log("Solicitando dados...");
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8080/productRequests.php?listAll=true", true);
+    xhr.open("GET", "http://localhost:8080/controller/productController.php?listAll=true", true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
@@ -54,8 +54,8 @@ function updateTable(data) {
     data.forEach(function(row) {
         var newRow = document.createElement("tr");
         newRow.innerHTML = `
-        <td><a href="http://localhost:8080/productRequests.php?id=${row.id}&action=edit"><img src="assets/img/edit.png" width="30" height="30"></a></td>
-        <td><a href="http://localhost:8080/productRequests.php?id=${row.id}&action=delete"><img src="assets/img/delete.png" width="30" height="30"></a></td>
+        <td><a href="http://localhost:8080/controller/productController.php?id=${row.id}&action=edit"><img src="assets/img/edit.png" width="30" height="30"></a></td>
+        <td><a href="http://localhost:8080/controller/productController.php?id=${row.id}&action=delete"><img src="assets/img/delete.png" width="30" height="30"></a></td>
         <td>${row.id}</td>
         <td>${row.prodname}</td>
         <td>${row.price}</td>
@@ -68,7 +68,7 @@ function updateTable(data) {
 function loadTableData2() {
     console.log("Solicitando dados...");
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://localhost:8080/typeRequests.php?listAll=true", true);
+    xhr.open("GET", "http://localhost:8080/controller/typeController.php?listAll=true", true);
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {

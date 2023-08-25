@@ -14,7 +14,7 @@
                 </div>
                 <?php endif; ?>
 
-                <form id="typeCadastroForm" method="post" action="http://localhost:8080/typeRequests.php">
+                <form id="typeCadastroForm" method="post" action="http://localhost:8080/controller/typeController.php">
                     <input type="hidden" id="operacao" name="operacao">
                     <input type="hidden" id="identificador" name="identificador">
                     <div class="form-group">

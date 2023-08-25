@@ -8,7 +8,7 @@
             <div class="col">
                 <h1>Cadastro de Vendas</h1>
 
-                <form id="vendaCadastroForm" method="post" action="http://localhost:8080/salesRequests.php">
+                <form id="vendaCadastroForm" method="post" action="http://localhost:8080/controller/salesController.php">
                     <input type="hidden" id="salesOperacao" name="salesOperacao">
                     <input type="hidden" id="saleId" name="saleId">
                     <div class="form-group">
@@ -20,7 +20,7 @@
 
                 <h1>Cadastro de Produtos da Venda</h1>
 
-                <form id="produtoCadastroForm" method="post" action="http://localhost:8080/salesItemsRequests.php">
+                <form id="produtoCadastroForm" method="post" action="http://localhost:8080/controller/salesItemsController.php">
                     <input type="hidden" id="itensOperacao" name="itensOperacao">
                     <input type="hidden" id="itemId" name="itemId">
                     <input type="hidden" id="saleItemId" name="saleItemId">

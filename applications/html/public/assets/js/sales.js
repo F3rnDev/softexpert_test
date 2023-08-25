@@ -15,7 +15,7 @@ let cadastrarProdBttn = document.getElementById("cadastrarProdBttn");
 let itensOperation = document.getElementById("itensOperacao");
 let produtoCadastroForm = document.getElementById("produtoCadastroForm");
 produtoCadastroForm.action =
-  `http://localhost:8080/salesItemsRequests.php?info=${info}`;
+  `http://localhost:8080/controller/salesItemsController.php?info=${info}`;
 
 let endSaleField = document.getElementById("endSale");
 let totalTaxField = document.getElementById("totalTax");
@@ -48,7 +48,7 @@ if (itemid) {
 
 function cancelSale() 
 {
-  window.location.href = `http://localhost:8080/salesItemsRequests.php?id=${saleid}&action=deleteAll`;
+  window.location.href = `http://localhost:8080/controller/salesItemsController.php?id=${saleid}&action=deleteAll`;
 }
 
 function finishSale()
@@ -61,7 +61,7 @@ function loadTableData2() {
   let xhr = new XMLHttpRequest();
   xhr.open(
     "GET",
-    "http://localhost:8080/productRequests.php?listAll=true",
+    "http://localhost:8080/controller/productController.php?listAll=true",
     true
   );
   xhr.onreadystatechange = function () {
@@ -105,7 +105,7 @@ function loadTableData() {
   let xhr = new XMLHttpRequest();
   xhr.open(
     "GET",
-    "http://localhost:8080/salesItemsRequests.php?listAll=true&saleId=" +
+    "http://localhost:8080/controller/salesItemsController.php?listAll=true&saleId=" +
       saleid,
     true
   );
@@ -132,7 +132,7 @@ function updateTable(data) {
   data.forEach(function (row) {
     let newRow = document.createElement("tr");
     newRow.innerHTML = `
-      <td><a href="http://localhost:8080/salesItemsRequests.php?id=${row.id}&action=delete&saleId=${saleid}&info=${info}"><img src="assets/img/delete.png" width="30" height="30"></a></td>
+      <td><a href="http://localhost:8080/controller/salesItemsController.php?id=${row.id}&action=delete&saleId=${saleid}&info=${info}"><img src="assets/img/delete.png" width="30" height="30"></a></td>
       <td>${row.prodname}</td>
       <td>${row.quantity}</td>
       <td>${row.price}</td>

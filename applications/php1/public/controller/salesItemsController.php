@@ -4,8 +4,8 @@ header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 header("Access-Control-Allow-Headers: DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range");
 header("Access-Control-Expose-Headers: Content-Length,Content-Range");
 
-require 'connection.php';
-require 'crud.php';
+require '../model/database/connection.php';
+require '../model/crud.php';
 
 $crud = new Crud($connection);
 
