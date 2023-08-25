@@ -1,18 +1,18 @@
 ## Diagrama entidade relacionamento
-![](applications\html\public\assets\img\DER.png)
+![](applications/html/public/assets/img/DER.png)
 
 ## Recursos da aplicação
 #### Cadastro de produtos:
-![](applications\html\public\assets\img\Produtos.png)
+![](applications/html/public/assets/img/Produtos.png)
 
 #### Cadastro de tipos:
-![](applications\html\public\assets\img\Tipos.png)
+![](applications/html/public/assets/img/Tipos.png)
 
 #### Cadastro de Vendas:
-![](applications\html\public\assets\img\Vendas.png)
+![](applications/html/public/assets/img/Vendas.png)
 
 #### Listagem de Vendas:
-![](applications\html\public\assets\img\ListagemdeVendas.png)
+![](applications/html/public/assets/img/ListagemdeVendas.png)
 
 ## 1 - Como subir o ambiente
 Pre-requisito: docker e docker compose.
