@@ -65,7 +65,7 @@ function updateTable(data) {
     });
 }
 
-function loadTableData2() {
+function loadFormControlData() {
     console.log("Solicitando dados...");
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "http://localhost:8080/controller/typeController.php?listAll=true", true);
@@ -107,5 +107,5 @@ function setSelectOption(data) {
 // Carregar os dados da tabela ao carregar a página
 window.onload = function() {
     loadTableData();
-    loadTableData2();
+    loadFormControlData();
 };

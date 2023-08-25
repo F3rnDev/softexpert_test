@@ -71,7 +71,7 @@ function updateTable(data) {
     "Valor Total da Venda: R$" + parseFloat(totalSale.toFixed(2));
 }
 
-function loadTableData2() {
+function loadFormControlData() {
   console.log("Solicitando dados...");
   let xhr = new XMLHttpRequest();
   xhr.open(
@@ -118,6 +118,6 @@ function setSelectOption(data) {
 
 // Carregar os dados da tabela ao carregar a página
 window.onload = function () {
-  loadTableData2();
+  loadFormControlData();
   loadTableData();
 };

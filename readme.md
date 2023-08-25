@@ -1,3 +1,19 @@
+## Diagrama entidade relacionamento
+![](applications\html\public\assets\img\DER.png)
+
+## Recursos da aplicação
+#### Cadastro de produtos:
+![](applications\html\public\assets\img\Produtos.png)
+
+#### Cadastro de tipos:
+![](applications\html\public\assets\img\Tipos.png)
+
+#### Cadastro de Vendas:
+![](applications\html\public\assets\img\Vendas.png)
+
+#### Listagem de Vendas:
+![](applications\html\public\assets\img\ListagemdeVendas.png)
+
 ## 1 - Como subir o ambiente
 Pre-requisito: docker e docker compose.
 
@@ -36,7 +52,4 @@ Caso você deseje importar os dados de exemplo da aplicação, execute o comando
 ```
 sh utils/import-database.sh
 ```
-
-## 3 - Exemplos de utilização do software
-Esta aplicação utilizam o mesmo modelo de design no ambiente de frontend
 
