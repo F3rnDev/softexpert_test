@@ -32,7 +32,7 @@ if (isset($_GET['id']) && isset($_GET['action'])) {
 
     if($action === 'delete')
     {
-        $resultado = $crud->delete("products", $id);
+        $resultado = $crud->delete("products", 'id', $id);
         header("Location: http://localhost/product.php");
     }
     else

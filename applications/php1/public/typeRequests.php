@@ -47,7 +47,7 @@ if (isset($_GET['id']) && isset($_GET['action'])) {
 
     if($action === 'delete')
     {
-        $resultado = $crud->delete("prodtype", $id);
+        $resultado = $crud->delete("prodtype", 'id', $id);
         header("Location: http://localhost/type.php");
     }
     elseif($action === 'update')

@@ -43,12 +43,12 @@ class Crud
         }
     }
 
-    public function delete($table, $id)
+    public function delete($table, $field, $id)
     {
         try {
-            $query = "DELETE FROM $table WHERE id = :id";
+            $query = "DELETE FROM $table WHERE $field = :$field";
             $stmt = $this->connection->prepare($query);
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(":$field", $id);
             return $stmt->execute();
         } catch (PDOException $e) {
             echo "Erro ao deletar o produto: " . $e->getMessage();

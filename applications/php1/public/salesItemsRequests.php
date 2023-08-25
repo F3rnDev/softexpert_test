@@ -31,18 +31,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (isset($_GET['id']) && isset($_GET['action'])) {
     $id = $_GET['id'];
     $action = $_GET['action'];
+    $info = $_GET['info'];
+    $saleId = $_GET['saleId'];
 
     if ($action === 'delete') {
-        $resultado = $crud->delete("products", $id);
-        header("Location: http://localhost/product.php");
-    } else {
-        $resultado = $crud->readByID("products", $id);
-        $id = $resultado['id'];
-        $name = $resultado['prodname'];
-        $price = $resultado['price'];
-        $type = $resultado['typeid'];
-
-        header("Location: http://localhost/product.php?id=$id&name=$name&price=$price&type=$type");
+        $resultado = $crud->delete("salesItem", 'id', $id);
+        header("Location: http://localhost/sales.php?saleId=$saleId&info=$info");
+    }
+    else
+    {
+        $deleteItem = $crud->delete("salesItem", 'saleid', $id);
+        $deleteSale = $crud->delete("sales", 'id', $id);
+        header("Location: http://localhost/sales.php");
     }
 }
 
@@ -60,6 +60,7 @@ if (isset($_GET['listAll'])) {
         $taxPrice = number_format(($salePrice * $type[0]['taxes']) / 100, 2, '.', '');
 
         $items = array(
+            "id" => $result[$curr]['id'],
             "prodname" => $product[0]['prodname'],
             "quantity" => $result[$curr]['quantity'],
             "price" => $product[0]['price'],

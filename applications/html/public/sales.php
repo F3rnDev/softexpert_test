@@ -40,7 +40,6 @@
                 <table class="table table-success table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">edit</th>
                             <th scope="col">delete</th>
                             <th scope="col">Produto</th>
                             <th scope="col">Quantidade</th>
@@ -53,6 +52,14 @@
 
                     <tbody id="table-body"></tbody>
                 </table>
+                <div id="endSale">
+                    <h5 align="right" id="totalTax"></h5>
+                    <h4 align="right" id="totalSale"></h4>
+                    <div align="right">
+                        <button id="cancel" type="button" class="btn btn-danger" onclick="cancelSale()">Cancelar</button>
+                        <button id="finish" type="button" class="btn btn-success" onclick="finishSale()">Finalizar Venda</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
